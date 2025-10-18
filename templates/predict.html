@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fraud Detection Form</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #0f172a, #1e2020);
+      color: white;
+      height: 100vh;
+    }
+    .btn {
+      background: linear-gradient(90deg, #235673, #181a1b);
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .card {
+      background-color: rgba(107, 128, 174, 0.85);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center">
+  <div class="card w-11/12 md:w-3/5 lg:w-1/2">
+    <h1 class="text-3xl font-bold text-center text-blue-400 mb-6">Fraud Detection Form</h1>
+    <form method="POST" class="space-y-4">
+      <div>
+        <label>Device Type</label>
+        <select name="device_type" class="w-full p-3 rounded-lg text-black" required>
+          <option value="">Select Device</option>
+          <option value="Mobile">Mobile</option>
+          <option value="Desktop">Desktop</option>
+          <option value="Tablet">Tablet</option>
+        </select>
+      </div>
+      <div>
+        <label>App Used</label>
+        <input type="text" name="app" class="w-full p-3 rounded-lg text-black" placeholder="Enter app name" required>
+      </div>
+      <div>
+        <label>Amount (₹)</label>
+        <input type="number" name="amount" class="w-full p-3 rounded-lg text-black" placeholder="Transaction amount" required>
+      </div>
+      <div>
+        <label>Login Attempts</label>
+        <input type="number" name="login_attempts" class="w-full p-3 rounded-lg text-black" required>
+      </div>
+      <div>
+        <label>Transactions (Past 1 Day)</label>
+        <input type="number" name="past_day_transactions" class="w-full p-3 rounded-lg text-black" required>
+      </div>
+      <div>
+        <label>Transactions (Past 1 Week)</label>
+        <input type="number" name="past_week_transactions" class="w-full p-3 rounded-lg text-black" required>
+      </div>
+      <div>
+        <label>Location</label>
+        <input type="text" name="location" class="w-full p-3 rounded-lg text-black" required>
+      </div>
+
+      <div class="flex justify-between mt-6">
+        <button type="submit" class="btn px-6 py-3 rounded-full">Predict</button>
+        <a href="/" class="btn px-6 py-3 rounded-full">Back</a>
+      </div>
+    </form>
+
+    {% if result %}
+      <div class="mt-8 text-center">
+        <h2 class="text-2xl font-semibold text-yellow-300">Result: {{ result }}</h2>
+        {% if details %}
+          <p class="text-gray-300 mt-2">
+            Source: {{ details.source }} <br>
+            {% if details.reason %}Reason: {{ details.reason }}<br>{% endif %}
+            {% if details.fraud_probability %}Fraud Probability: {{ details.fraud_probability }}%{% endif %}
+          </p>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

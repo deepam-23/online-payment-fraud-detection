@@ -1,0 +1,164 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #00c8ff00; /* blue */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Home Page */
+.home-page {
+    background-image: url('https://tse4.mm.bing.net/th/id/OIP.3tTzOg_OPgGCFudixuQjCwHaFl?pid=Api&P=0&h=180');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.start-btn {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    background-color: #5a0ea1;
+}
+
+/* Login Page */
+.login-page {
+    background-color: #f0f8ff; /* light blue-white mix */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #51565c;
+    margin-bottom: 25px;
+}
+
+.login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.login-container button {
+    background-color: rgba(0, 113, 128, 0);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    margin-top: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #6d8f9800;
+}
+
+/* Predict Page */
+.predict-page {
+    background-color: #f0f8ff;
+    min-height: 100vh;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.predict-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 500px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.predict-container h2 {
+    color: #00ffff;
+    margin-bottom: 20px;
+}
+
+.predict-container select,
+.predict-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.predict-container button {
+    background-color: rgb(0, 128, 98);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    margin-top: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.predict-container button:hover {
+    background-color: #0e9aa100;
+}
+
+/* Result box */
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}

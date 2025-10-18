@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Payment Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="home-bg">
+    <nav class="navbar">
+        <h2>Online Payment Fraud Detection</h2>
+        <div class="nav-links">
+            <a href="{{ url_for('home_page') }}">Home</a>
+            <a href="{{ url_for('login_page') }}">Login</a>
+            <a href="#">About</a>
+        </div>
+    </nav>
+
+    <div class="home-container">
+        <h1>Secure Your Transactions</h1>
+        <p>AI-powered fraud detection for digital payments.</p>
+        <a href="{{ url_for('login_page') }}" class="btn">Get Started</a>
+    </div>
+</body>
+</html>

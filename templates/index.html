@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Online Payment Fraud Detection</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, rgba(11, 12, 19, 0.85), rgba(35, 45, 137, 0.9)),
+                  url('https://tse4.mm.bing.net/th/id/OIP.3tTzOg_OPgGCFudixuQjCwHaFl?pid=Api&P=0&h=180');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      height: 100vh;
+    }
+    .btn {
+      background: linear-gradient(90deg, #2563eb, #1d4ed8);
+      color: white;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center text-center">
+  <nav class="w-full flex justify-between items-center p-6 bg-black bg-opacity-50 fixed top-0 left-0">
+    <h1 class="text-2xl font-bold text-yellow-300">Fraud Detection</h1>
+    <div class="space-x-4">
+      <a href="/" class="btn px-4 py-2 rounded-full">Home</a>
+      {% if logged_in %}
+        <a href="/predict" class="btn px-4 py-2 rounded-full">Detect</a>
+        <a href="/logout" class="btn px-4 py-2 rounded-full">Logout</a>
+      {% else %}
+        <a href="/login" class="btn px-4 py-2 rounded-full">Login</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <div class="bg-black bg-opacity-60 p-10 rounded-3xl mt-24 max-w-xl w-full shadow-lg">
+    <h2 class="text-4xl font-bold mb-4 text-blue-400">Online Payment Fraud Detection</h2>
+    <p class="text-lg text-gray-200 mb-6">Login to check if your online transaction looks suspicious.</p>
+    <a href="/login" class="btn px-8 py-3 rounded-full text-lg">Get Started</a>
+  </div>
+</body>
+</html>
