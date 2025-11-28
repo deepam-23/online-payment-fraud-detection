@@ -19,61 +19,73 @@
     .btn:hover { opacity: 0.9; }
     .card {
       background-color: rgba(107, 128, 174, 0.85);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 1rem;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+    select, input {
+      padding: 0.45rem !important;
     }
   </style>
 </head>
 <body class="flex items-center justify-center">
-  <div class="card w-11/12 md:w-3/5 lg:w-1/2">
-    <h1 class="text-3xl font-bold text-center text-blue-400 mb-6">Fraud Detection Form</h1>
-    <form method="POST" class="space-y-4">
+  <div class="card w-11/12 sm:w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3">
+    <h1 class="text-2xl font-bold text-center text-blue-300 mb-5">Fraud Detection Form</h1>
+
+    <form method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
         <label>Device Type</label>
-        <select name="device_type" class="w-full p-3 rounded-lg text-black" required>
+        <select name="device_type" class="w-full p-2 rounded-lg text-black" required>
           <option value="">Select Device</option>
           <option value="Mobile">Mobile</option>
           <option value="Desktop">Desktop</option>
           <option value="Tablet">Tablet</option>
         </select>
       </div>
+
       <div>
         <label>App Used</label>
-        <input type="text" name="app" class="w-full p-3 rounded-lg text-black" placeholder="Enter app name" required>
-      </div>
-      <div>
-        <label>Amount (₹)</label>
-        <input type="number" name="amount" class="w-full p-3 rounded-lg text-black" placeholder="Transaction amount" required>
-      </div>
-      <div>
-        <label>Login Attempts</label>
-        <input type="number" name="login_attempts" class="w-full p-3 rounded-lg text-black" required>
-      </div>
-      <div>
-        <label>Transactions (Past 1 Day)</label>
-        <input type="number" name="past_day_transactions" class="w-full p-3 rounded-lg text-black" required>
-      </div>
-      <div>
-        <label>Transactions (Past 1 Week)</label>
-        <input type="number" name="past_week_transactions" class="w-full p-3 rounded-lg text-black" required>
-      </div>
-      <div>
-        <label>Location</label>
-        <input type="text" name="location" class="w-full p-3 rounded-lg text-black" required>
+        <input type="text" name="app" class="w-full p-2 rounded-lg text-black" placeholder="Enter app name" required>
       </div>
 
-      <div class="flex justify-between mt-6">
-        <button type="submit" class="btn px-6 py-3 rounded-full">Predict</button>
-        <a href="/" class="btn px-6 py-3 rounded-full">Back</a>
+      <div>
+        <label>Amount (₹)</label>
+        <input type="number" name="amount" class="w-full p-2 rounded-lg text-black" placeholder="Transaction amount" required>
+      </div>
+
+      <div>
+        <label>Login Attempts</label>
+        <input type="number" name="login_attempts" class="w-full p-2 rounded-lg text-black" required>
+      </div>
+
+      <div>
+        <label>Transactions (Past 1 Day)</label>
+        <input type="number" name="past_day_transactions" class="w-full p-2 rounded-lg text-black" required>
+      </div>
+
+      <div>
+        <label>Transactions (Past 1 Week)</label>
+        <input type="number" name="past_week_transactions" class="w-full p-2 rounded-lg text-black" required>
+      </div>
+
+      <div class="md:col-span-2">
+        <label>Location</label>
+        <input type="text" name="location" class="w-full p-2 rounded-lg text-black" required>
+      </div>
+
+      <div class="md:col-span-2 flex justify-between mt-3">
+        <button type="submit" class="btn px-5 py-2 rounded-full">Predict</button>
+        <a href="/" class="btn px-5 py-2 rounded-full">Back</a>
       </div>
     </form>
 
+    <!-- Prediction Result Section -->
     {% if result %}
-      <div class="mt-8 text-center">
-        <h2 class="text-2xl font-semibold text-yellow-300">Result: {{ result }}</h2>
+      <div class="mt-6 text-center border-t border-gray-400 pt-4">
+        <h2 class="text-xl font-semibold text-yellow-300">Prediction Result</h2>
+        <p class="text-lg mt-2 text-white">Result: <span class="font-bold">{{ result }}</span></p>
         {% if details %}
-          <p class="text-gray-300 mt-2">
+          <p class="text-gray-200 mt-2 text-sm">
             Source: {{ details.source }} <br>
             {% if details.reason %}Reason: {{ details.reason }}<br>{% endif %}
             {% if details.fraud_probability %}Fraud Probability: {{ details.fraud_probability }}%{% endif %}
