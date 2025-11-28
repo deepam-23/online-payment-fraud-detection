@@ -1,0 +1,12 @@
+{
+  "buildCommand": "pip install -r requirements.txt",
+  "outputDirectory": ".",
+  "installCommand": "pip install --no-cache-dir -r requirements.txt",
+  "functions": {
+    "api/app.py": {
+      "runtime": "python3.9",
+      "memory": 512,
+      "maxDuration": 30
+    }
+  }
+}
